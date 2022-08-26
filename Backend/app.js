@@ -12,8 +12,10 @@ app.use(cors());
 
 // Import Routes
 const employerRoute = require('./routes/employer')
+const jobRoute = require('./routes/job')
 
 app.use('/employer/',employerRoute)
+app.use('/job/',jobRoute)
 
 // Connect to db
 mongoose.connect(process.env.dbUrl, {useNewUrlParser: true}, () =>

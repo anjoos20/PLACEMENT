@@ -25,12 +25,4 @@ const EmployerSchema = mongoose.Schema({
     }
 });
 
-// EmployerSchema.path('email').validate(async(email)=>{
-//     const emailcount = await mongoose.models.Employers.countDocuments({email})
-//     console.log("employer model",emailcount)
-//     if (emailcount){
-//     res.json({"serverError":true, "error":"Email already exist"})}
-//     return !emailcount
-//   }, 'Email already exits')
-
 module.exports = mongoose.model('Employers',EmployerSchema)
