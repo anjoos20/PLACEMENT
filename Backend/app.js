@@ -14,10 +14,12 @@ app.use(cors());
 const employerRoute = require('./routes/employer')
 const jobRoute = require('./routes/job')
 const student = require("./routes/student")
+const admin=require('./routes/admin');
 
 app.use('/employer/',employerRoute)
 app.use('/job/',jobRoute)
 app.use("/student",student);
+app.use('/admin',admin);
 
 
 const port=process.env.PORT||3000;

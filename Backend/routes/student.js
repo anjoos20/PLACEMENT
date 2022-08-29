@@ -2,7 +2,7 @@ const express = require("express");
 const route = express.Router();
 const Student = require("../models/student");
 const IctkStudent = require("../models/ictak_student")
-const Course = require("../models/course_list")
+const Course = require("../models/course")
 const Jobs = require("../models/job")
 
 route.post("/signin",(req,res)=>{

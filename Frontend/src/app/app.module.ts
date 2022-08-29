@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,19 +18,27 @@ import { StudSignupComponent } from './stud-signup/stud-signup.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdmnDashboardComponent } from './admn-dashboard/admn-dashboard.component';
 import { AdmnLoginComponent } from './admn-login/admn-login.component';
+import { AdmnCourseComponent } from './admn-course/admn-course.component';
+import { AdmnStudentsComponent } from './admn-students/admn-students.component';
+import { AdmnSubadmnComponent } from './admn-subadmn/admn-subadmn.component';
+import { AdmnMenuComponent } from './admn-menu/admn-menu.component';
+import { DataTablesModule } from 'angular-datatables';
+import { AdmnEmpprofileComponent } from './admn-empprofile/admn-empprofile.component';
+import { AdmnCandidatesComponent } from './admn-candidates/admn-candidates.component';
+import { AdmnEmployerComponent } from './admn-employer/admn-employer.component';
 import { EmpService } from './emp.service';
-import { PasswordPatternDirective } from './password-pattern.directive';
 import { EmpDashboardComponent } from './emp-dashboard/emp-dashboard.component';
 import { EmpProfileComponent } from './emp-profile/emp-profile.component';
 import { JobPostComponent } from './job-post/job-post.component';
 import { JobService } from './job.service';
+import { PasswordPatternDirective } from './password-pattern.directive';
 import { StudAuthService } from './stud-auth.service';
 import { StudJoblistComponent } from './stud-joblist/stud-joblist.component';
 import { StudProfilepageComponent } from './stud-profilepage/stud-profilepage.component';
 import { StudSettingspageComponent } from './stud-settingspage/stud-settingspage.component';
 import { StudContactUspageComponent } from './stud-contact-uspage/stud-contact-uspage.component';
 import { StudFormP2Component } from './stud-form-p2/stud-form-p2.component';
-import { BrowserModule } from '@angular/platform-browser';
+
 
 
 @NgModule({
@@ -47,6 +56,13 @@ import { BrowserModule } from '@angular/platform-browser';
     AdminComponent,
     AdmnDashboardComponent,
     AdmnLoginComponent,
+    AdmnCourseComponent,
+    AdmnStudentsComponent,
+    AdmnSubadmnComponent,
+    AdmnMenuComponent,
+    AdmnEmployerComponent,
+    AdmnEmpprofileComponent,
+    AdmnCandidatesComponent,
     PasswordPatternDirective,
     EmpDashboardComponent,
     EmpProfileComponent,
@@ -62,7 +78,8 @@ import { BrowserModule } from '@angular/platform-browser';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DataTablesModule
   ],
   providers: [EmpService,JobService,StudAuthService],
   bootstrap: [AppComponent]

@@ -22,7 +22,11 @@ const EmployerSchema = mongoose.Schema({
     },
     companyInfo: {
         type: String
-    }
+    },
+    disable_status: {
+        type: String,
+        default:"N"
+    }   
 });
 
 module.exports = mongoose.model('Employers',EmployerSchema)
