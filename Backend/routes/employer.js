@@ -54,7 +54,7 @@ router.post('/login', (req, res) => {
     }
     else {
       console.log("In not null")
-      if (disable_status == "N") {
+      if (getUser.disable_status == "N") {
         if (pwd == getUser.password) {
           console.log("Valid login")
           res.json({ "message": "Login successful", "status": "success", "eid": getUser._id });
@@ -67,7 +67,7 @@ router.post('/login', (req, res) => {
         }
       }
       else {
-        if (disable_status == "Y") {
+        if (getUser.disable_status == "Y") {
           res.json({ "message": "ID suspended. Please contact ICTAK placement officer", "status": "error" });
         }
       }
