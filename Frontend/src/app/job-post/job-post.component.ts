@@ -4,6 +4,8 @@ import { JobModel } from '../job.model';
 import { JobService } from '../job.service';
 import { NgForm } from '@angular/forms';
 import Swal from 'sweetalert2'
+import { IDropdownSettings } from 'ng-multiselect-dropdown';
+import { SkillService } from '../skill.service';
 
 @Component({
   selector: 'app-job-post',
@@ -13,9 +15,39 @@ import Swal from 'sweetalert2'
 export class JobPostComponent implements OnInit {
   
   addJob = new JobModel('','','','','','',null!,null!);
-  constructor(private jobService: JobService, private router: Router) { }
+  constructor(private jobService: JobService, private skillService: SkillService, private router: Router) { }
+  dropdownList: Array<Object> = [];
+  selectedItems = [];
+  dropdownSettings:IDropdownSettings={};
 
   ngOnInit(): void {
+    // Getting skills for the dropdown from the skills collection
+    this.skillService.getSkill()
+        .subscribe(
+          (res:any) =>{
+            this.dropdownList =JSON.parse(JSON.stringify(res));
+          });
+          
+
+    console.log("dropdown is",this.dropdownList);
+    
+    this.dropdownSettings  = {
+      singleSelection: false,
+      idField: 'item_id',
+      textField: 'item_text',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      itemsShowLimit: 3,
+      allowSearchFilter: true
+    };
+
+  }
+
+  onItemSelect(item: any) {
+    console.log("onselect",item);
+  }
+  onSelectAll(items: any) {
+    console.log("onselectall",items);
   }
 
 AddJob(){

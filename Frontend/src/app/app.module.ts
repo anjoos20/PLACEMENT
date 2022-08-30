@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,6 +38,7 @@ import { StudProfilepageComponent } from './stud-profilepage/stud-profilepage.co
 import { StudSettingspageComponent } from './stud-settingspage/stud-settingspage.component';
 import { StudContactUspageComponent } from './stud-contact-uspage/stud-contact-uspage.component';
 import { StudFormP2Component } from './stud-form-p2/stud-form-p2.component';
+import { SkillService } from './skill.service';
 
 
 
@@ -79,9 +80,10 @@ import { StudFormP2Component } from './stud-form-p2/stud-form-p2.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    DataTablesModule
+    DataTablesModule,
+    NgMultiSelectDropDownModule.forRoot()
   ],
-  providers: [EmpService,JobService,StudAuthService],
+  providers: [EmpService,JobService,StudAuthService,SkillService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
