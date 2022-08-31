@@ -13,13 +13,15 @@ import { SkillService } from '../skill.service';
   styleUrls: ['./job-post.component.css']
 })
 export class JobPostComponent implements OnInit {
-  
-  addJob = new JobModel('','','','','','',null!,null!);
+  i: number = 0;
+  selItems: Array<object> = [];
+  addJob = new JobModel('','','','','',this.selItems,'',null!,null!);
   constructor(private jobService: JobService, private skillService: SkillService, private router: Router) { }
   dropdownList: Array<Object> = [];
-  selectedItems = [];
+  selectedItems: Array<object> = [];
+  
   dropdownSettings:IDropdownSettings={};
-
+ 
   ngOnInit(): void {
     // Getting skills for the dropdown from the skills collection
     this.skillService.getSkill()
@@ -37,20 +39,31 @@ export class JobPostComponent implements OnInit {
       textField: 'item_text',
       selectAllText: 'Select All',
       unSelectAllText: 'UnSelect All',
-      itemsShowLimit: 3,
+      // limitSelection: 5,
       allowSearchFilter: true
     };
-
+    
   }
+  // onItemSelect(item: any) {
+  //   console.log("onselect",item);
+  //   // this.selItems.push(item); 
 
-  onItemSelect(item: any) {
-    console.log("onselect",item);
-  }
-  onSelectAll(items: any) {
-    console.log("onselectall",items);
-  }
-
+  //   // this.addJob.skills = item;
+  //   // this.addJob.skills.push(item)
+  // }
+  // onSelectAll(items: any) {
+  //   console.log("onselectall",items);
+  //   this.addJob.skills = items;
+  // }
+  
 AddJob(){
+    // for ( let i=0; i< this.selectedItems.length; i++){
+    //   this.selItems = this.selectedItems;
+    // }
+
+    this.addJob.skills = this.selectedItems;
+    console.log ("To insert in job",this.addJob)
+    console.log("selitems",this.selItems)
     this.jobService.newJobs(this.addJob)
     // .subscribe(
     //   (res:any) => {  

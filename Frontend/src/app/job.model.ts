@@ -5,6 +5,7 @@ export class JobModel {
         public jd_text: String,
         public number: String,
         public salary: String,
+        public skills: Array<Object>,
         public location: String,
         public start_date: Date,
         public end_date: Date
